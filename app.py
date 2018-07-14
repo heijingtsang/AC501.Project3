@@ -11,7 +11,7 @@ migrate = Migrate(app, db)
 class Courses(db.Model):
     c_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     c_code = db.Column(db.Text, nullable=False)
-    c_name = db.Column(git db.Text, nullable=False)
+    c_name = db.Column(db.Text, nullable=False)
     start_date = db.Column(db.DateTime, nullable=False)
     end_date = db.Column(db.DateTime, nullable=False)
     c_size = db.Column(db.Integer, nullable=False)
