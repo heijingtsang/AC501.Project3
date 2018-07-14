@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <meta charset="utf-8" />
+  <title>Courses</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.js"></script>
+
+  <body>
+
+    <a href="{{ url_for('add_course') }}">Add Course</a>
+
+    <table class="ui single line table">
+        <thead>
+            <td>ID</td>
+            <td>Course Code</td>
+            <td>Course Name</td>
+            <td>Start Date</td>
+            <td>End Date</td>
+            <td>Vacancy</td>
+            <td>Location</td>
+            <td>Operations</td>
+        </thead>
+
+        {% for course in courses %}
+            <tr>
+                <td class="selectable">
+                    <a href="{{ url_for('course_details', c_id=course['c_code']) }}">{{course['c_code']}}</a>
+                </td>
+                <td>{{course['c_name']}}</td>
+                <td>{{ course['start_date'] }}</td>
+                <td>{{ course['end_date'] }}</td>
+                <td>{{ course['vacancy'] }}</td>
+                <td>{{ course['location'] }}</td>
+                <td>
+                    <a href="{{ url_for('edit_course', c_id=course['c_id']) }}">Edit</a>
+                    <p>  </p>
+                    <a href="{{ url_for('delete_course', c_id=course['c_id']) }}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h5 class="ui header"></h5>
+    <a href = "{{ url_for('home') }}">Go back to home page</a>
+
+  </body>
+
+</html>
