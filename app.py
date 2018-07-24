@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
 app = Flask(__name__)
-app.secret_key = "thicc"
+app.secret_key = "First Code Academy"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///EnrollmentSystem.db'
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
@@ -106,7 +106,8 @@ def edit_course(c_id):
             record.pre_req = request.form['pre-req']
 
         db.session.commit()
-        return flash('Record was successfully updated.')
+        flash('Record was successfully updated.')
+        return redirect(url_for('index_courses'))
 
     return render_template('edit.html')
 
