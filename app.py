@@ -15,20 +15,20 @@ class Courses(db.Model):
     start_date = db.Column(db.DateTime, nullable=False)
     end_date = db.Column(db.DateTime, nullable=False)
     c_size = db.Column(db.Integer, nullable=False)
-    vacancy = db.Column(db.Integer, nullable=False)
+    # vacancy = db.Column(db.Integer, nullable=False)
     location = db.Column(db.Text, nullable=False)
     description = db.Column(db.Text)
     pre_req = db.Column(db.Text)
 
 
-    def __init__(self, c_id, c_code, c_name, start_date, end_date, c_size, vacancy, location, description, pre_req):
+    def __init__(self, c_id, c_code, c_name, start_date, end_date, c_size, location, description, pre_req):
         self.c_id = c_id
         self.c_code = c_code
         self.c_name = c_name
         self.start_date = start_date
         self.end_date = end_date
         self.c_size = c_size
-        self.vacancy = vacancy
+        # self.vacancy = vacancy
         self.location = location
         self.description = description
         self.pre_req = pre_req
@@ -64,7 +64,7 @@ def add_course():
             start_date = request.form['Start Date']
             end_date = request.form['End Date']
             c_size = request.form['Class Size']
-            vacancy = request.form['Class Size']
+            # vacancy = request.form['Class Size']
             location = request.form['Location']
 
             if not request.form['Description']:
@@ -88,10 +88,32 @@ def add_course():
     return render_template('create.html')
 
 
-@app.route('/courses/<int:c_id>/edit')
-def edit_course():
-    #TODO: Edit Course
-    return 'Edit Course'
+@app.route('/courses/<int:c_id>/edit', methods=['POST', 'GET'])
+def edit_course(c_id):
+    if request.method == 'POST':
+        record = Courses.query.get(c_id)
+        if request.form['Start Date']:
+            record.start_date = request.form['Start Date']
+
+        if request.form['End Date']:
+            record.end_date = request.form['End Date']
+
+        if request.form['Class Size']:
+            record.c_size = request.form['Class Size']
+
+
+        if request.form['Location']:
+            record.location = request.form['Location']
+
+        if request.form['Description']:
+            record.description = request.form['Description']
+
+        if request.form['Pre-requisites']:
+            record.pre_req = request.form['Pre-requisites']
+
+        return flash('Record was successfully updated.')
+
+    return render_template('edit.html')
 
 
 @app.route('/courses/<int:c_id>/delete')

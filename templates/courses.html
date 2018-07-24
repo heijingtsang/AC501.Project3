@@ -16,7 +16,6 @@
             <td>Course Name</td>
             <td>Start Date</td>
             <td>End Date</td>
-            <td>Vacancy</td>
             <td>Location</td>
             <td>Operations</td>
         </thead>
@@ -29,7 +28,6 @@
                 <td>{{course['c_name']}}</td>
                 <td>{{ course['start_date'] }}</td>
                 <td>{{ course['end_date'] }}</td>
-                <td>{{ course['vacancy'] }}</td>
                 <td>{{ course['location'] }}</td>
                 <td>
                     <a href="{{ url_for('edit_course', c_id=course['c_id']) }}">Edit</a>
