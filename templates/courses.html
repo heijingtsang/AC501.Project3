@@ -23,9 +23,10 @@
         {% for course in courses %}
             <tr>
                 <td class="selectable">
-                    <a href="{{ url_for('course_details', c_id=course['c_code']) }}">{{course['c_code']}}</a>
+                    <a href="{{ url_for('course_details', c_id=course['c_id']) }}">{{course['c_id']}}</a>
                 </td>
-                <td>{{course['c_name']}}</td>
+                <td>{{ course['c_code'] }}</td>
+                <td>{{ course['c_name'] }}</td>
                 <td>{{ course['start_date'] }}</td>
                 <td>{{ course['end_date'] }}</td>
                 <td>{{ course['location'] }}</td>

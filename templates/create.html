@@ -6,29 +6,47 @@
   <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.js"></script>
 
   <body>
-    <form class="ui form">
+    <form class="ui equal width form" method="post">
         <h3 class="ui dividing header">Create Course</h3>
+
         <div class="field">
             <label>Course Code</label>
-            <input type="text">
+            <input type="text" name="course code">
         </div>
+
         <div class="field">
             <label>Course Name</label>
-            <input type="text">
+            <input type="text" name="course name">
         </div>
-        <div class="three fields">
-            <label>Start Date</label>
+
+        <h5>Start Date</h5>
+        <div class="fields">
             <div class="field">
-                <input type="number" placeholder="Day">
+                <input type="number" placeholder="Day" name="start-day">
             </div>
             <div class="field">
-                <input type="number" placeholder="Month">
+                <input type="number" placeholder="Month" name="start-month">
             </div>
             <div class="field">
-                <input type="number" placeholder="Year">
+                <input type="number" placeholder="Year" name="start-year">
             </div>
         </div>
 
+        <h5>End Date</h5>
+        <div class="fields">
+            <div class="field">
+                <input type="number" placeholder="Day" name="end-day">
+            </div>
+            <div class="field">
+                <input type="number" placeholder="Month" name="end-month">
+            </div>
+            <div class="field">
+                <input type="number" placeholder="Year" name="end-year">
+            </div>
+        </div>
+
+        <div class="ui submit button">Submit</div>
+        <div class="ui error message"></div>
     </form>
 
 
