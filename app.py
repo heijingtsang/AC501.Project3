@@ -1,13 +1,11 @@
 from datetime import datetime
 from flask import Flask, render_template, url_for, request, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
 
 app = Flask(__name__)
 app.secret_key = "First Code Academy"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///EnrollmentSystem.db'
 db = SQLAlchemy(app)
-migrate = Migrate(app, db)
 
 class Courses(db.Model):
     c_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -22,7 +20,6 @@ class Courses(db.Model):
 
 
     def __init__(self, c_code, c_name, start_date, end_date, c_size, location, description, pre_req):
-        # self.c_id = c_id
         self.c_code = c_code
         self.c_name = c_name
         self.start_date = start_date
