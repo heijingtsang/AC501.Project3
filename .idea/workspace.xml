@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8603d36f-464e-47da-85b4-0fb2d6fbbcb9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/templates/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/course_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/course_details.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +19,8 @@
       <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="965">
-              <caret line="96" column="44" lean-forward="true" selection-start-line="96" selection-start-column="44" selection-end-line="96" selection-end-column="44" />
+            <state relative-caret-position="828">
+              <caret line="52" column="48" selection-start-line="52" selection-start-column="48" selection-end-line="52" selection-end-column="48" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -29,20 +28,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="course_details.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="course_details.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/course_details.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="216">
+              <caret line="12" column="42" lean-forward="true" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="create.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/create.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="30" column="95" lean-forward="true" selection-start-line="30" selection-start-column="95" selection-end-line="30" selection-end-column="95" />
+            <state relative-caret-position="342">
+              <caret line="49" column="59" lean-forward="true" selection-start-line="49" selection-start-column="59" selection-end-line="49" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -50,7 +49,7 @@
       <file leaf-file-name="edit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
+            <state relative-caret-position="299">
               <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
             </state>
           </provider>
@@ -59,7 +58,7 @@
       <file leaf-file-name="courses.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/courses.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="-61">
               <caret lean-forward="true" />
             </state>
           </provider>
@@ -91,11 +90,11 @@
       <list>
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/templates/home.html" />
-        <option value="$PROJECT_DIR$/templates/course_details.html" />
         <option value="$PROJECT_DIR$/templates/courses.html" />
         <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/templates/edit.html" />
         <option value="$PROJECT_DIR$/templates/create.html" />
+        <option value="$PROJECT_DIR$/templates/course_details.html" />
       </list>
     </option>
   </component>
@@ -381,15 +380,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/courses.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="-61">
           <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/create.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="49" column="59" lean-forward="true" selection-start-line="49" selection-start-column="59" selection-end-line="49" selection-end-column="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="965">
-          <caret line="96" column="44" lean-forward="true" selection-start-line="96" selection-start-column="44" selection-end-line="96" selection-end-column="44" />
+        <state relative-caret-position="828">
+          <caret line="52" column="48" selection-start-line="52" selection-start-column="48" selection-end-line="52" selection-end-column="48" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
@@ -398,22 +411,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/course_details.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/create.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="30" column="95" lean-forward="true" selection-start-line="30" selection-start-column="95" selection-end-line="30" selection-end-column="95" />
+        <state relative-caret-position="216">
+          <caret line="12" column="42" lean-forward="true" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
         </state>
       </provider>
     </entry>
