@@ -91,26 +91,23 @@ def add_course():
 @app.route('/courses/<int:c_id>/edit', methods=['POST', 'GET'])
 def edit_course(c_id):
     if request.method == 'POST':
+
         record = Courses.query.get(c_id)
+
         if request.form['Start Date']:
             record.start_date = request.form['Start Date']
-
         if request.form['End Date']:
             record.end_date = request.form['End Date']
-
         if request.form['Class Size']:
             record.c_size = request.form['Class Size']
-
-
         if request.form['Location']:
             record.location = request.form['Location']
-
         if request.form['Description']:
             record.description = request.form['Description']
-
         if request.form['Pre-requisites']:
             record.pre_req = request.form['Pre-requisites']
 
+        db.session.commit()
         return flash('Record was successfully updated.')
 
     return render_template('edit.html')
@@ -118,7 +115,7 @@ def edit_course(c_id):
 
 @app.route('/courses/<int:c_id>/delete')
 def delete_course(c_id):
-    course = Courses.query.filter_by(c_id=c_id).first()
+    course = Courses.query.get(c_id)
     db.session.delete(course)
     db.session.commit()
     flash('Record was successfully deleted.')
