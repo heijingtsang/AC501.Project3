@@ -7,7 +7,7 @@
 
   <body>
     <form class="ui equal width form" method="post">
-        <h3 class="ui dividing header">Create Course</h3>
+        <h2 class="ui dividing header">Create Course</h2>
 
         <div class="field">
             <label>Course Code</label>
@@ -22,34 +22,52 @@
         <h5>Start Date</h5>
         <div class="fields">
             <div class="field">
-                <input type="number" placeholder="Day" name="start-day">
+                <input type="number" placeholder="Day" name="start-day" min="1" max="31">
             </div>
             <div class="field">
-                <input type="number" placeholder="Month" name="start-month">
+                <input type="number" placeholder="Month" name="start-month" min="1" max="12">
             </div>
             <div class="field">
-                <input type="number" placeholder="Year" name="start-year">
+                <input type="number" placeholder="Year" name="start-year" min="2018" max="9999">
             </div>
         </div>
 
         <h5>End Date</h5>
         <div class="fields">
             <div class="field">
-                <input type="number" placeholder="Day" name="end-day">
+                <input type="number" placeholder="Day" name="end-day" min="1" max="31">
             </div>
             <div class="field">
-                <input type="number" placeholder="Month" name="end-month">
+                <input type="number" placeholder="Month" name="end-month" min="1" max="12">
             </div>
             <div class="field">
-                <input type="number" placeholder="Year" name="end-year">
+                <input type="number" placeholder="Year" name="end-year" min="2018" max="9999">
             </div>
+        </div>
+
+        <div class="field">
+            <label>Class Size</label>
+            <input type="number" name="class size">
+        </div>
+
+        <div class="field">
+            <label>Location</label>
+            <input type="text" name="location">
+        </div>
+
+        <div class="field">
+            <label>Description</label>
+            <input type="text" name="description">
+        </div>
+
+        <div class="field">
+            <label>Pre-requisites</label>
+            <input type="text" name="pre-req">
         </div>
 
         <div class="ui submit button">Submit</div>
         <div class="ui error message"></div>
     </form>
-
-
 
 
     <h5 class="ui header"></h5>

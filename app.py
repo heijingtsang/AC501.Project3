@@ -15,7 +15,6 @@ class Courses(db.Model):
     start_date = db.Column(db.DateTime, nullable=False)
     end_date = db.Column(db.DateTime, nullable=False)
     c_size = db.Column(db.Integer, nullable=False)
-    # vacancy = db.Column(db.Integer, nullable=False)
     location = db.Column(db.Text, nullable=False)
     description = db.Column(db.Text)
     pre_req = db.Column(db.Text)
@@ -28,7 +27,6 @@ class Courses(db.Model):
         self.start_date = start_date
         self.end_date = end_date
         self.c_size = c_size
-        # self.vacancy = vacancy
         self.location = location
         self.description = description
         self.pre_req = pre_req
