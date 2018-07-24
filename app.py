@@ -90,7 +90,7 @@ def add_course():
 def edit_course(c_id):
     if request.method == 'POST':
 
-        record = Courses.query.filter_by(c_id).first()
+        record = Courses.query.filter_by(c_id=c_id).first()
 
         if request.form['start-day'] and request.form['start-month'] and request.form['start-year']:
             record.start_date = datetime(year=request.form['start-year'], month=request.form['start-month'], day=request.form['start-day'])
@@ -113,12 +113,12 @@ def edit_course(c_id):
 
 @app.route('/courses/<int:c_id>/delete')
 def delete_course(c_id):
-    course = Courses.query.filter_by(c_id).first()
+    course = Courses.query.filter_by(c_id=c_id).first()
     db.session.delete(course)
     db.session.commit()
     flash('Record was successfully deleted.')
 
-    return redirect('courses.html')
+    return redirect(url_for('index_courses'))
 
 
 if __name__ == '__main__':
