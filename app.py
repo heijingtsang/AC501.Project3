@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import date
 from flask import Flask, render_template, url_for, request, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 
@@ -11,19 +11,21 @@ class Courses(db.Model):
     c_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     c_code = db.Column(db.Text, nullable=False)
     c_name = db.Column(db.Text, nullable=False)
-    start_date = db.Column(db.DateTime, nullable=False)
-    end_date = db.Column(db.DateTime, nullable=False)
+    start_date = db.Column(db.Date, nullable=False)
+    end_date = db.Column(db.Date, nullable=False)
+    instructor = db.Column(db.Text, nullable=False)
     c_size = db.Column(db.Integer, nullable=False)
     location = db.Column(db.Text, nullable=False)
     description = db.Column(db.Text)
     pre_req = db.Column(db.Text)
 
 
-    def __init__(self, c_code, c_name, start_date, end_date, c_size, location, description, pre_req):
+    def __init__(self, c_code, c_name, start_date, end_date, c_size, instructor, location, description, pre_req):
         self.c_code = c_code
         self.c_name = c_name
         self.start_date = start_date
         self.end_date = end_date
+        self.instructor = instructor
         self.c_size = c_size
         self.location = location
         self.description = description
@@ -52,13 +54,14 @@ def course_details(c_id):
 def add_course():
     if request.method == 'POST':
 
-        if not request.form['course code'] or not request.form['course name'] or not request.form['start-day'] or not request.form['start-month'] or not request.form['start-year'] or not request.form['end-day'] or not request.form['end-month'] or not request.form['end-year'] or not request.form['class size'] or not request.form['location']:
+        if not request.form['course code'] or not request.form['course name'] or not request.form['start-day'] or not request.form['start-month'] or not request.form['start-year'] or not request.form['end-day'] or not request.form['end-month'] or not request.form['end-year'] or not request.form['instructor'] or not request.form['class size'] or not request.form['location']:
             flash('Please enter all the fields.', 'Error')
         else:
             c_code = request.form['course code']
             c_name = request.form['course name']
-            start_date = datetime(year=int(request.form['start-year']), month=int(request.form['start-month']), day=int(request.form['start-day']))
-            end_date = datetime(year=int(request.form['start-year']), month=int(request.form['start-month']), day=int(request.form['end-day']))
+            start_date = date(year=int(request.form['start-year']), month=int(request.form['start-month']), day=int(request.form['start-day']))
+            end_date = date(year=int(request.form['end-year']), month=int(request.form['end-month']), day=int(request.form['end-day']))
+            instructor = request.form['instructor']
             c_size = request.form['class size']
             location = request.form['location']
 
@@ -72,7 +75,7 @@ def add_course():
             else:
                 pre_req = request.form['pre-req']
 
-            course = Courses(c_code=c_code, c_name=c_name, start_date=start_date, end_date=end_date, c_size=c_size, location=location, description=description, pre_req=pre_req)
+            course = Courses(c_code=c_code, c_name=c_name, start_date=start_date, end_date=end_date, instructor=instructor, c_size=c_size, location=location, description=description, pre_req=pre_req)
 
             db.session.add(course)
             db.session.commit()
@@ -90,9 +93,11 @@ def edit_course(c_id):
         record = Courses.query.filter_by(c_id=c_id).first()
 
         if request.form['start-day'] and request.form['start-month'] and request.form['start-year']:
-            record.start_date = datetime(year=request.form['start-year'], month=request.form['start-month'], day=request.form['start-day'])
+            record.start_date = date(year=int(request.form['start-year']), month=int(request.form['start-month']), day=int(request.form['start-day']))
         if request.form['end-day'] and request.form['end-month'] and request.form['end-year']:
-            record.end_date = datetime(year=request.form['end-year'], month=request.form['end-month'], day=request.form['end-day'])
+            record.end_date = date(year=int(request.form['end-year']), month=int(request.form['end-month']), day=int(request.form['end-day']))
+        if request.form['instructor']:
+            record.instructor = request.form['instructor']
         if request.form['class size']:
             record.c_size = request.form['class size']
         if request.form['location']:
