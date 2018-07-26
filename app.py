@@ -1,11 +1,13 @@
 from datetime import date
 from flask import Flask, render_template, url_for, request, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
+from flask_sslify import SSLify
 
 app = Flask(__name__)
 app.secret_key = "First Code Academy"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///EnrollmentSystem.db'
 db = SQLAlchemy(app)
+sslify = SSLify(app)
 
 class Courses(db.Model):
     c_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -125,4 +127,4 @@ def delete_course(c_id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
