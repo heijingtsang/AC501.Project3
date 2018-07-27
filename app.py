@@ -95,9 +95,9 @@ def edit_course(c_id):
         record = Courses.query.filter_by(c_id=c_id).first()
 
         if request.form['course code']:
-            record.c_code = int(request.form['course code'])
+            record.c_code = request.form['course code']
         if request.form['course name']:
-            record.c_name = int(request.form['course name'])
+            record.c_name = request.form['course name']
         if request.form['start-day'] and request.form['start-month'] and request.form['start-year']:
             record.start_date = date(year=int(request.form['start-year']), month=int(request.form['start-month']), day=int(request.form['start-day']))
         if request.form['end-day'] and request.form['end-month'] and request.form['end-year']:
