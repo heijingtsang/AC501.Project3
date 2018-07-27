@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.secret_key = "First Code Academy"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///EnrollmentSystem.db'
 db = SQLAlchemy(app)
-sslify = SSLify(app)
+# sslify = SSLify(app)
 
 class Courses(db.Model):
     c_id = db.Column(db.Integer, primary_key=True, autoincrement=True)

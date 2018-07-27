@@ -74,6 +74,16 @@
     </form>
 
 
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+               {% for message in messages %}
+               <h4>Error: {{ message }}</h4>
+               {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
     <h5 class="ui header"></h5>
     <a href = "{{ url_for('index_courses') }}">Go back to Courses</a>
 
