@@ -7,7 +7,24 @@
 
 <body>
 
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class=flashes>
+            {% for message in messages %}
+                <div class="ui success message">
+                    <div class="content">
+                        <div class="header">Success</div>
+                        <p>{{ message }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
 <a href="{{ url_for('add_course') }}">Add Course</a>
+
+<h5></h5>
 
 <table class="ui single line table">
     <thead>
@@ -40,16 +57,6 @@
         </tr>
     {% endfor %}
 </table>
-
-{% with messages = get_flashed_messages() %}
-    {% if messages %}
-        <ul class=flashes>
-            {% for message in messages %}
-                <h4>{{ message }}</h4>
-            {% endfor %}
-        </ul>
-    {% endif %}
-{% endwith %}
 
 <h5 class="ui header"></h5>
 <a href="{{ url_for('home') }}">Go back to home page</a>

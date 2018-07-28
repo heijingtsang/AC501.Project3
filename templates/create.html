@@ -77,7 +77,13 @@
     {% if messages %}
         <ul class=flashes>
             {% for message in messages %}
-                <h4>{{ message }}</h4>
+                <div class="ui icon error message">
+                    <i class="attention circle icon"></i>
+                    <div class="content">
+                        <div class="header">Error</div>
+                        <p>{{ message }}</p>
+                    </div>
+                </div>
             {% endfor %}
         </ul>
     {% endif %}
